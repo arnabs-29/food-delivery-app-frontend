@@ -7,7 +7,7 @@ pipeline{
     environment{
         DOCKER_REGISTRY="docker.io"
         DOCKERHUB_CREDENTIALS = credentials('DOCKER_HUB_CREDENTIAL')
-        VERSION = "${env.BUILD_ID}"
+        VERSION = "${env.BUILD_ID ?: 'latest'}"
     }
 
     stages{
