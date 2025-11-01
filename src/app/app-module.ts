@@ -2,19 +2,28 @@ import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
-import { App } from './app';
+import { AppComponent } from './app.component.';
+import { HeaderModule } from './header/header-module';
+import { RestaurantListingModule } from './restaurant-listing/restaurant-listing-module';
+import { HttpClientModule } from '@angular/common/http';
+import { FoodCatalogueModule } from './food-catalogue/food-catalogue-module';
+import { OrderSummaryModule } from './order-summary/order-summary-module';
 
 @NgModule({
   declarations: [
-    App
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HeaderModule,
+    RestaurantListingModule,
+    HttpClientModule,
+    FoodCatalogueModule,
+    OrderSummaryModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
   ],
-  bootstrap: [App]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

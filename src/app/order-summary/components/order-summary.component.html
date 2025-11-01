@@ -1,0 +1,34 @@
+<div class="order-summary">
+    <h1>Order Summary</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of orderSummary?.foodItemList">
+            <td>{{item.itemName}}</td>
+            <td>{{item.quantity}}</td>
+            <td>&#x20b9;{{(item.price ?? 0) * (item.quantity ?? 0)}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+            <tr class="total-row">
+                <td colspan="2"><strong>Total</strong></td>
+                <td><strong>&#x20b9; {{total}}</strong></td>
+            </tr>
+        </tfoot> 
+    </table>
+    <button class="checkout-btn" (click)="saveOrder()">Place Order</button>
+</div>
+
+<div class="dialog-container" *ngIf="showDialog">
+    <div class="dialog-box">
+        <h2>Order Placed Successfully!</h2>
+        <p>Your order has been placed. Thank you for choosing SavoryHub!</p>
+        <button class="close-btn" (click)="closeDialog()">Close</button>
+    </div>
+</div>
